@@ -1,0 +1,57 @@
+body {
+    font-family: "Helvetica Neue", 'Helvetica', sans-serif;
+    color: gray;
+    margin: 1em;
+    line-height: 2;
+}
+a:link,
+a:visited{
+    color: blue;
+    padding-bottom: 0.1875em;
+}
+a:hover {
+    color: orange;
+    cursor: pointer;
+}
+.hide--first > *:first-child {
+    display: none;
+}
+.hide--second > *:last-child {
+    display: none;
+}
+.message {
+    font-size: 1.5em;
+    text-align: center;
+    width: 42%;
+    padding: 0 2%;
+    background: lightgray;
+}
+.message:last-of-type {
+    float: right;
+}
+.close {
+    color: red;
+    position: absolute;
+    text-transform: lowercase;
+    right: 20px;
+    font-size: 1.5em;
+    top: 10px;
+    line-height: 1;
+    border: none !important;
+}
+p.info {
+    font-size: 19px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+p.info span {  color: #666 }
+footer:before{
+    content: "";
+    display: table;
+    clear: both;
+}
+footer {
+    padding-top: 40%;
+    color: #888;
+    text-align: center;
+}

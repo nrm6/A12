@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies Demo</title>
+  <link rel="stylesheet" href="cookies.css" />
+</head>
+
+<body>
+  <div id="container">
+    <div class="message  change-message--on-load  hide--second">
+      <p>Refresh the page and see what happens!</p>
+      <p>Cookie has been created. Reset the page to do it again.</p>
+    </div>
+
+  <footer>
+    <div class="reset"><a href="">Reset the page and remove the cookies</a>.</div>
+  </footer>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="cookie.js"></script>
+  <script type="text/JavaScript">
+  $(document).ready(function() {
+    // COOKIES
+    // if true, hide the initial message and show the other one
+    if ($.cookie('hide-after-load') == 'yes') {
+      $('.change-message--on-load').removeClass('hide--second');
+      $('.change-message--on-load').addClass('hide--first');
+    }
+
+
+    // add cookie to hide the first message after load (on refresh it will be hidden)
+    $.cookie('hide-after-load', 'yes', {expires: 7 });
+
+
+    //reset the cookies
+    $('.reset a').click(function() {
+      // check that if it was cliked before or not
+      if (!$(this).hasClass('clicked')) {
+        // add class that the link is clicked and shot the footer with delay
+        $(this).addClass('clicked');
+
+        // add cookie setting that user has clicked
+        $.cookie('hide-after-load', 'no', {expires: 7 });
+      }
+      location.reload();
+    });
+  });
+  </script>
+  </div>
+</body>
+</html>
